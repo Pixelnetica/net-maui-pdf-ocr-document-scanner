@@ -6,7 +6,7 @@ namespace XamarinFormsDemoApplication.Popup
 {
     internal class AboutDialogPage : MyBaseDialogPage
     {
-        public AboutDialogPage():base(0)
+        public AboutDialogPage(MainPage p):base(p,0)
         {
             
 

@@ -21,7 +21,7 @@ namespace XamarinFormsDemoApplication.Popup
     internal class MainMenuDialogPage : MyBaseDialogPage
     {
 
-        public MainMenuDialogPage( List<MyMenuItem> menu,double top):base(top)
+        public MainMenuDialogPage(MainPage p, List<MyMenuItem> menu,double top):base(p, top)
         {
             
             foreach (var it in menu)
@@ -32,11 +32,12 @@ namespace XamarinFormsDemoApplication.Popup
                 {
                     Command = new Command(() =>
                     {
-                        this.Closed += (object sender, CommunityToolkit.Maui.Core.PopupClosedEventArgs e) =>
-                        {
-                            MainThread.BeginInvokeOnMainThread(it.OnClick);
-                        };
+                        //this.Closed += (object sender, CommunityToolkit.Maui.Core.PopupClosedEventArgs e) =>
+                        //{
+                         //   MainThread.BeginInvokeOnMainThread(it.OnClick);
+                        //};
                         base.CloseDialog();
+                        MainThread.BeginInvokeOnMainThread(it.OnClick);
                     })
                 });
                 MainLayout.Children.Add(r);

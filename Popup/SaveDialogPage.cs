@@ -23,7 +23,7 @@ namespace XamarinFormsDemoApplication.Popup
         Dictionary<ImageWriter.EImageFileType, string> _Types = new Dictionary<ImageWriter.EImageFileType, string>();
         Dictionary<ImageWriter.EPaperFormatConfigValues, string> _PaperFormats = new Dictionary<ImageWriter.EPaperFormatConfigValues, string>();
 
-        public SaveDialogPage(MainPage a,double top):base(top)
+        public SaveDialogPage(MainPage a,double top):base(a,top)
         {
             _Owner = a;
             MainLayout.Spacing = MenuDivSize;
@@ -174,7 +174,7 @@ namespace XamarinFormsDemoApplication.Popup
 
             _MultiplePagesCB.Label.IsEnabled = multi;
 
-            base.VerticalOptions = pf ? Microsoft.Maui.Primitives.LayoutAlignment.Center: Microsoft.Maui.Primitives.LayoutAlignment.Fill;
+            base.SetVerticalLayoutOptions(pf ? LayoutOptions.Center: LayoutOptions.Fill);
             
 
             //_PaperFormatLayout.IsEnabled = pf;
