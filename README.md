@@ -45,7 +45,7 @@ It could also be utilized in other applications for __development and testing pu
 
 To test DSSDK _without watermarks_ **Free** trial license available [on request](https://www.pixelnetica.com/products/document-scanning-sdk/sdk-support.html?utm_source=EasyScan&utm_medium=src-net-maui&utm_campaign=read_me&utm_content=dssdk-support "Contact for Pixelnetica DSSDK Free trial").
 
-🚫 It is strictly prohibited to distribute, market, publish to application stores like, but not limited, AppStore, Google Play, etc or use other than for development or staging purposes Pixelnetica Document Scanning SDK demo or trial licenses.
+🚫 It is strictly prohibited to distribute, market, publish to application stores like, but not limited, App Store, Google Play, etc. or use other than for development or staging purposes Pixelnetica Document Scanning SDK demo or trial licenses.
 
 ## Have Questions, need Free Trial or Quotation?
 
