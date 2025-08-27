@@ -6,7 +6,7 @@ namespace XamarinFormsDemoApplication.Popup
 {
     internal class AboutDialogPage : MyBaseDialogPage
     {
-        public AboutDialogPage(MainPage p):base(p,0)
+        public AboutDialogPage():base(0)
         {
             
 
@@ -23,8 +23,8 @@ namespace XamarinFormsDemoApplication.Popup
             
             StackLayout hdr = new StackLayout() { Orientation = StackOrientation.Horizontal };
             MainLayout.Children.Add(hdr);
-                        
-            Image img = new Image() { Source = ImageSource.FromFile("icon.png") };
+
+            Image img = new Image() { Source = ImageSource.FromFile("about_logo.png") };
             img.VerticalOptions = LayoutOptions.FillAndExpand;
             img.HeightRequest = 25;
             hdr.Children.Add(img);
@@ -61,7 +61,7 @@ namespace XamarinFormsDemoApplication.Popup
                 MainLayout.Children.Add(url);
             }
 
-            var ok = new Button() { Text = "OK", HorizontalOptions = LayoutOptions.End, Margin = new Thickness(MenuPadding) };
+            var ok = new MyButton() { Text = "OK" };
             ok.Clicked += OnOK;
             MainLayout.Children.Add(ok);
 

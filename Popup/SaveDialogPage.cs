@@ -23,7 +23,7 @@ namespace XamarinFormsDemoApplication.Popup
         Dictionary<ImageWriter.EImageFileType, string> _Types = new Dictionary<ImageWriter.EImageFileType, string>();
         Dictionary<ImageWriter.EPaperFormatConfigValues, string> _PaperFormats = new Dictionary<ImageWriter.EPaperFormatConfigValues, string>();
 
-        public SaveDialogPage(MainPage a,double top):base(a,top)
+        public SaveDialogPage(MainPage a,double top):base(top)
         {
             _Owner = a;
             MainLayout.Spacing = MenuDivSize;
@@ -106,7 +106,7 @@ namespace XamarinFormsDemoApplication.Popup
 
             MainLayout.Children.Add(_MultiplePagesCB=new MyCheckBox("Simulate multiple pages",a._Record.MultiPages));
 
-            var ok = new Button() { Text = "OK", HorizontalOptions = LayoutOptions.End, FontSize = MenuFontSize, Margin = new Thickness(MenuPadding) };
+            var ok = new MyButton() { Text = "OK"};
             ok.Clicked += OnOK;
             MainLayout.Children.Add(ok);
 
@@ -174,8 +174,10 @@ namespace XamarinFormsDemoApplication.Popup
 
             _MultiplePagesCB.Label.IsEnabled = multi;
 
-            base.SetVerticalLayoutOptions(pf ? LayoutOptions.Center: LayoutOptions.Fill);
-            
+            //maui <12
+            //base.VerticalOptions = pf ? Microsoft.Maui.Primitives.LayoutAlignment.Center: Microsoft.Maui.Primitives.LayoutAlignment.Fill;
+            base.VerticalOptions = pf ? LayoutOptions.Center : LayoutOptions.Fill;
+
 
             //_PaperFormatLayout.IsEnabled = pf;
             //foreach (var p in _PaperFormatLayout.Children) 

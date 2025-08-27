@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1706.14
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiDemoApplication", "MauiDemoApplication.csproj", "{701EEFFE-2EA1-4241-AFD3-A6170B5398BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiDemoApplication", "MauiDemoApplication.csproj", "{F727F869-0321-C8E6-693C-0D362312C68E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,32 +11,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{701EEFFE-2EA1-4241-AFD3-A6170B5398BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{701EEFFE-2EA1-4241-AFD3-A6170B5398BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{701EEFFE-2EA1-4241-AFD3-A6170B5398BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{701EEFFE-2EA1-4241-AFD3-A6170B5398BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F727F869-0321-C8E6-693C-0D362312C68E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F727F869-0321-C8E6-693C-0D362312C68E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F727F869-0321-C8E6-693C-0D362312C68E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F727F869-0321-C8E6-693C-0D362312C68E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F727F869-0321-C8E6-693C-0D362312C68E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4D3216C2-E0D5-41EE-AC46-C451B414F7C2}
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		Policies = $0
-		$0.DotNetNamingPolicy = $1
-		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
-		$0.TextStylePolicy = $2
-		$2.inheritsSet = null
-		$2.scope = application/xaml
-		$0.XmlFormattingPolicy = $3
-		$3.inheritsSet = null
-		$3.scope = application/xaml
-		$0.TextStylePolicy = $4
-		$4.inheritsSet = null
-		$4.scope = application/xml
-		$0.XmlFormattingPolicy = $5
-		$5.scope = application/xml
-		$0.StandardHeader = $6
+		SolutionGuid = {0229C7DF-686C-4FD5-BCF5-C8FAEEE624C6}
 	EndGlobalSection
 EndGlobal

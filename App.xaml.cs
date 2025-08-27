@@ -6,7 +6,9 @@ namespace MauiDemoApplication
     {
         public App()
         {
-            //InitializeComponent();
+            InitializeComponent();
+
+            UserAppTheme = AppTheme.Light;
 
             MainPage = new XamarinFormsDemoApplication.MainPage(null);
         }

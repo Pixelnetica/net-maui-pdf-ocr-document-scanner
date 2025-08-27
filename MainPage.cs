@@ -30,32 +30,31 @@ namespace XamarinFormsDemoApplication
                 
         Layout _ToolBarLayout;
         StackLayout _PictureLayout = new StackLayout();
-        Grid _Root = new Grid();
 
         static bool b_DebugFirstStart = true;
 
         public MainPage(MetaImage InitMetaImage)
         {
-            StackLayout mainLayout = new StackLayout();
+            StackLayout _MainLayout = new StackLayout();
             On<iOS>().SetUseSafeArea(false);
             //_MainLayout.IgnoreSafeArea = true;
-            //this.BackgroundColor = Colors.Black;
+            this.BackgroundColor = Colors.White;
             
             _PictureLayout.VerticalOptions = LayoutOptions.FillAndExpand;
-            mainLayout.VerticalOptions = LayoutOptions.FillAndExpand;
+            _MainLayout.VerticalOptions = LayoutOptions.FillAndExpand;
 
             _PictureLayout.Spacing = 0;
 
             _CropImageFormsView = new PxlCropImageView() { VerticalOptions = LayoutOptions.FillAndExpand, HorizontalOptions = LayoutOptions.FillAndExpand };
-            
+
             _CropImageFormsView.ActveChanged += _CropImageFormsView_ActveChanged;
 
             _PictureLayout.Children.Add(_CropImageFormsView);
                         
             _ToolBarLayout = _CropImageFormsView.TakeToolBar();
-            mainLayout.Children.Add(_ToolBarLayout);
+            _MainLayout.Children.Add(_ToolBarLayout);
             _ToolBarLayout.VerticalOptions = LayoutOptions.Start;
-            mainLayout.Children.Add(_PictureLayout);
+            _MainLayout.Children.Add(_PictureLayout);
 
             //_ToolBarLayout.IgnoreSafeArea = true;
             //_CropImageFormsView.IgnoreSafeArea = true;
@@ -64,7 +63,7 @@ namespace XamarinFormsDemoApplication
 
             //customization of CropImageFormsView
             //_CropImageFormsView.ToolBarHeight = BUTTON_SIZE;
-            _CropImageFormsView.ToolBarBackgroundColor = _CropImageFormsView.ToolBarBackgroundColor;
+            //_CropImageFormsView.ToolBarBackgroundColor = _CropImageFormsView.ToolBarBackgroundColor;
             //_CropImageFormsView.ToolBarPadding = new Thickness(16);
                         
             _CropImageFormsView.NonActiveEdgeColor = Color.FromUint(4278229452u);
@@ -105,9 +104,7 @@ namespace XamarinFormsDemoApplication
             //_CropImageFormsView.CloseButton.BackgroundColor = buttonColor;
             //_CropImageFormsView.SelectButton.BackgroundColor = buttonColor;
 
-            _Root.Add(mainLayout, 0, 0);
-
-            this.Content= _Root;
+            this.Content= _MainLayout;
 
 #if __ANDROID__
             
@@ -133,22 +130,12 @@ namespace XamarinFormsDemoApplication
             }
 #endif
         }
-
-        public void SetPopupLayout(View p)
-        {
-            while (_Root.Children.Count > 1) _Root.Children.RemoveAt(1);
-
-            if(p!=null)
-            {
-                _Root.Add(p, 0, 0);
-            }
-        }
-
+              
         void _CropImageFormsView_OnMenu(object sender, EventArgs e)
-        {            
+        {
             var menu = CreateMenuItems();
-            var page = new Popup.MainMenuDialogPage(this, menu, _ToolBarLayout.Height);
-            page.ShowDialog(this);
+            var page = new Popup.MainMenuDialogPage(menu, _ToolBarLayout.Height);
+            page.ShowDialog();
         }
 
         protected override bool OnBackButtonPressed()
@@ -183,7 +170,7 @@ namespace XamarinFormsDemoApplication
                 result.Add(new MyMenuItem("Save to file",()=> SaveButton_Clicked(true)));
             }
 
-            result.Add(new MyMenuItem("About", ()=>(new Popup.AboutDialogPage(this)).ShowDialog(this)));
+            result.Add(new MyMenuItem("About", ()=>(new Popup.AboutDialogPage()).ShowDialog()));
 
             return result;
         }
@@ -205,7 +192,7 @@ namespace XamarinFormsDemoApplication
 
         void ScanSettings_ClickedAsync()
         {
-            (new Popup.CameraSettingsDialogPage(this,_ToolBarLayout.Height)).ShowDialog(this);
+            (new Popup.CameraSettingsDialogPage(_ToolBarLayout.Height)).ShowDialog();
         }
 
         void Scan_ClickedAsync()
@@ -329,7 +316,7 @@ namespace XamarinFormsDemoApplication
             {
             MainThread.BeginInvokeOnMainThread( () =>
             {
-                (new Popup.ProfileDialogPage(this, _ToolBarLayout.Height)).ShowDialog(this);
+                (new Popup.ProfileDialogPage(this, _ToolBarLayout.Height)).ShowDialog();
             });
             });
         }
@@ -355,7 +342,11 @@ namespace XamarinFormsDemoApplication
                     _Record.OnCropImage(!source);
                 }
 
-                UpdateView(false, true, source);
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    UpdateView(false, true, source);
+                });
+
             });
         }
 
@@ -366,7 +357,7 @@ namespace XamarinFormsDemoApplication
         void SaveButton_Clicked(bool needShare)
         {
             var page = new Popup.SaveDialogPage(this,_ToolBarLayout.Height);
-            page.ShowDialog(this);
+            page.ShowDialog();
         }
 
         internal async void DoSaveImage(SaveImageTask.Params prm, bool needShare)
@@ -389,7 +380,6 @@ namespace XamarinFormsDemoApplication
                     _Record.CustomPageWidth = prm.CustomPageWidth;
                     _Record.CustomPageHeight = prm.CustomPageHeight;
 
-                    //string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                     string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
 #if DEBUG2

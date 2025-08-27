@@ -12,7 +12,7 @@ namespace XamarinFormsDemoApplication.Popup
         MyCheckBox ShakeDetection = new MyCheckBox("Shake detection",Settings.ShakeDetection);
         MyCheckBox DocumentArea = new MyCheckBox("Document area", Settings.DocumentArea);
         MyCheckBox TrapezoidDistortion = new MyCheckBox("Trapezoid distortion", Settings.TrapezoidDistortion);
-        public CameraSettingsDialogPage(MainPage p, double top):base(p,top)
+        public CameraSettingsDialogPage(double top):base(top)
         {
             MainLayout.Children.Add(ShakeDetection);
             MainLayout.Children.Add(DocumentArea);

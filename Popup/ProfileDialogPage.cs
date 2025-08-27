@@ -10,7 +10,7 @@ namespace XamarinFormsDemoApplication.Popup
         EProcessing _CurrentProfile;
         MyCheckBox _StrongShadows;
 
-        public ProfileDialogPage(MainPage a,double top):base(a,top)
+        public ProfileDialogPage(MainPage a,double top):base(top)
         {
             _Owner = a;
 
